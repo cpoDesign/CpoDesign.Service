@@ -1,5 +1,4 @@
-﻿using System;
-using System.Timers;
+﻿using System.Timers;
 
 namespace CpoDesign.Service
 {
@@ -11,12 +10,26 @@ namespace CpoDesign.Service
         {
             _logger = logger;
             _timer = new Timer(10000) { AutoReset = true };
-            _timer.Elapsed += (sender, eventArgs) => Console.WriteLine("It is {0} and all is well", DateTime.Now);
+            _timer.Elapsed += ElapsedEvent;
         }
-        public void Start() {
+
+        #region Service events
+        public void Start()
+        {
             _timer.Start();
             _logger.Log("Service started");
         }
-        public void Stop() { _timer.Stop(); }
+
+        public void Stop()
+        {
+            _timer.Stop();
+            _logger.Log("service stopped");
+        } 
+
+        #endregion
+        private void ElapsedEvent(object sender, ElapsedEventArgs e)
+        {
+            _logger.Log("All is well");
+        }
     }
 }

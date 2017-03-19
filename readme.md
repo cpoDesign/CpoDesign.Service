@@ -1,4 +1,4 @@
-﻿Example service
+﻿#Example service
 
 This is example service using TopShelf.
 
@@ -7,12 +7,12 @@ This example comes out of box with
  - NLog logger
  - Folder watcher
 
-Links
+#Links
 https://github.com/Topshelf/Topshelf
 
-Packages
-# Topshelf
-# Topshelf.FileSystemWatcher
-# NLog
-# Autofac
+#Packages
+- Topshelf
+- Topshelf.FileSystemWatcher
+- NLog
+- Autofac
 

@@ -54,6 +54,9 @@ namespace CpoDesign.Service
                  x.SetDisplayName("Stuff");
                  x.SetServiceName("Stuff");
              });
+
+            // If your service fails this will show you why. Usually DI Issue
+            //Console.ReadKey();
         }
 
         private static IContainer ConstructDIContainer()
