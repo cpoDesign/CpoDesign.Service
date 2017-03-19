@@ -1,13 +1,18 @@
-﻿= Example service =
+﻿Example service
+=======
 
-This is example service using TopShelf
+This is example service using TopShelf with 
 
 
 
-=Links=
+Links
+=======
 https://github.com/Topshelf/Topshelf
 
-= Packages =
-- Topshelf
-- Topshelf.FileSystemWatcher
-- NLog
+Packages
+=======
+1. Topshelf
+1. Topshelf.FileSystemWatcher
+1. NLog
+1. Autofac
+
