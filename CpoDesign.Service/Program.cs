@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Topshelf;
 using Topshelf.FileSystemWatcher;
+using Topshelf.Autofac;
 
 namespace CpoDesign.Service
 {
@@ -16,11 +18,21 @@ namespace CpoDesign.Service
 
         public static void Main()
         {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<CpodesignService>().AsSelf();
+            builder.RegisterType<ConsoleLogger>().As<IConsoleLogger>();
+            var container = builder.Build();
+
             HostFactory.Run(x =>
             {
+                x.UseAutofacContainer(container);
+                //x.Service<CpodesignService>(s =>
+                //{
+                //    s.ConstructUsing(name => new CpodesignService());
                 x.Service<CpodesignService>(s =>
                 {
-                    s.ConstructUsing(name => new CpodesignService());
+
+                    s.ConstructUsingAutofacContainer();
                     s.WhenStopped(tc => tc.Stop());
                     s.WhenStarted((service, host) =>
                     {
@@ -53,11 +65,13 @@ namespace CpoDesign.Service
                 x.SetDisplayName("Stuff");
                 x.SetServiceName("Stuff");
             });
-
+            Console.ReadKey();
         }
         private static void FileSystemCreated(TopshelfFileSystemEventArgs topshelfFileSystemEventArgs)
         {
             Console.WriteLine("New file created! ChangeType = {0} FullPath = {1} Name = {2} FileSystemEventType {3}", topshelfFileSystemEventArgs.ChangeType, topshelfFileSystemEventArgs.FullPath, topshelfFileSystemEventArgs.Name, topshelfFileSystemEventArgs.FileSystemEventType);
         }
     }
+
+ 
 }
