@@ -11,6 +11,8 @@ namespace CpoDesign.Service.Core
     {
         static void Main(string[] args)
         {
+            const string ServiceName = "NetCore3dot1ServiceSample";
+
             HostFactory.Run(windowsService =>
             {
                 windowsService.UseAutofacContainer(ConstructDIContainer());
@@ -26,9 +28,9 @@ namespace CpoDesign.Service.Core
                 windowsService.RunAsLocalSystem();
                 windowsService.StartAutomatically();
 
-                windowsService.SetDescription("TopshelfDotNetCoreExample");
-                windowsService.SetDisplayName("TopshelfDotNetCoreExample");
-                windowsService.SetServiceName("TopshelfDotNetCoreExample");
+                windowsService.SetDescription(ServiceName);
+                windowsService.SetDisplayName(ServiceName);
+                windowsService.SetServiceName(ServiceName);
             });
         }
 

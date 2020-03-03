@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CpoDesign.Service", "CpoDes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E3EE1347-5254-4B98-8BC3-BE15AA6AD767}"
 	ProjectSection(SolutionItems) = preProject
-		readme.txt = readme.txt
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CpoDesign.Service.Core", "CpoDesign.Service.Core\CpoDesign.Service.Core.csproj", "{8E0D6BA2-E7AB-4D5F-BC58-F1EA61D8B203}"
